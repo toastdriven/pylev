@@ -4,7 +4,6 @@ import pylev
 
 class LevenschteinTestCase(unittest2.TestCase):
     def test_classic(self):
-        self.assertEqual()
         self.assertEqual(pylev.levenschtein('kitten', 'sitting'), 3)
 
     def test_same(self):
