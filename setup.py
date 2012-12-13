@@ -15,6 +15,8 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
+        # That's right, works in Py3 (& PyPy) too!
+        "Programming Language :: Python :: 3",
     ],
     url='http://github.com/toastdriven/pylev'
 )

@@ -6,6 +6,13 @@ A pure Python Levenschtein implementation that's not freaking GPL'd.
 Based off the Wikipedia code samples at
 http://en.wikipedia.org/wiki/Levenshtein_distance.
 
+
+Requirements
+------------
+
+* Python 2.7.X, Python 3.3+ or PyPy 1.6.0+
+
+
 Usage
 -----
 
