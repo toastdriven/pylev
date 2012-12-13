@@ -41,6 +41,10 @@ Running::
 Version History
 ---------------
 
+* v1.0.2
+
+    * Python packaging is **REALLY** hard. Including the README *this time*.
+
 * v1.0.1
 
     * Python packaging is hard. Including the README this time.

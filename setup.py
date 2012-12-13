@@ -1,12 +1,13 @@
+import os
 from distutils.core import setup
 
 setup(
     name='pylev',
-    version='1.0.1',
+    version='1.0.2',
     description="A pure Python Levenschtein implementation that's not freaking GPL'd.",
     author='Daniel Lindsley',
     author_email='daniel@toastdriven.com',
-    long_description=open('README.rst', 'r').read(),
+    long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst'), 'r').read(),
     py_modules=['pylev'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
