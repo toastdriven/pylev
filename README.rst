@@ -48,6 +48,12 @@ Running::
 Version History
 ---------------
 
+* v1.1.0
+
+    * Implemented a much faster variant (several orders of magnitude).
+    * The older variant was renamed to ``classic_levenschtein``.
+    * Tested & working on Python 3.3 & PyPy 1.6.0 as well.
+
 * v1.0.2
 
     * Python packaging is **REALLY** hard. Including the README *this time*.

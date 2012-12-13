@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='pylev',
-    version='1.0.2',
+    version='1.1.0',
     description="A pure Python Levenschtein implementation that's not freaking GPL'd.",
     author='Daniel Lindsley',
     author_email='daniel@toastdriven.com',

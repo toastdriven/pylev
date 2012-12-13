@@ -16,14 +16,9 @@ Usage is fairly straightforward.::
     distance = pylev.levenschtein('kitten', 'sitting')
     assert(distance, 3)
 
-
-License
--------
-
-New BSD.
 """
 __author__ = 'Daniel Lindsley'
-__version__ = (1, 0, 2)
+__version__ = (1, 1, 0)
 __license__ = 'New BSD'
 
 
