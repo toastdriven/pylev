@@ -41,6 +41,10 @@ Running::
 Version History
 ---------------
 
+* v1.0.1
+
+    * Python packaging is hard. Including the README this time.
+
 * v1.0.0
 
     * Initial release, just the naive implementation of Levenschtein.
