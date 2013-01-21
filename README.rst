@@ -1,7 +1,7 @@
 pylev
 =====
 
-A pure Python Levenschtein implementation that's not freaking GPL'd.
+A pure Python Levenshtein implementation that's not freaking GPL'd.
 
 Based off the Wikipedia code samples at
 http://en.wikipedia.org/wiki/Levenshtein_distance.
@@ -19,7 +19,7 @@ Usage
 Usage is fairly straightforward.::
 
     import pylev
-    distance = pylev.levenschtein('kitten', 'sitting')
+    distance = pylev.levenshtein('kitten', 'sitting')
     assert(distance, 3)
 
 
@@ -48,6 +48,11 @@ Running::
 Version History
 ---------------
 
+* v1.2.0
+
+    * Fixed all incorrect spellings of "Levenshtein" (there's no "c" in it).
+    * Old methods are aliased for backward-compatibility.
+
 * v1.1.0
 
     * Implemented a much faster variant (several orders of magnitude).
@@ -64,4 +69,4 @@ Version History
 
 * v1.0.0
 
-    * Initial release, just the naive implementation of Levenschtein.
+    * Initial release, just the naive implementation of Levenshtein.

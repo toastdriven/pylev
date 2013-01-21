@@ -3,8 +3,8 @@ from distutils.core import setup
 
 setup(
     name='pylev',
-    version='1.1.0',
-    description="A pure Python Levenschtein implementation that's not freaking GPL'd.",
+    version='1.2.0',
+    description="A pure Python Levenshtein implementation that's not freaking GPL'd.",
     author='Daniel Lindsley',
     author_email='daniel@toastdriven.com',
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst'), 'r').read(),

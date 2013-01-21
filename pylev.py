@@ -2,7 +2,7 @@
 pylev
 =====
 
-A pure Python Levenschtein implementation that's not freaking GPL'd.
+A pure Python Levenshtein implementation that's not freaking GPL'd.
 
 Based off the Wikipedia code samples at
 http://en.wikipedia.org/wiki/Levenshtein_distance.
@@ -13,18 +13,18 @@ Usage
 Usage is fairly straightforward.::
 
     import pylev
-    distance = pylev.levenschtein('kitten', 'sitting')
+    distance = pylev.levenshtein('kitten', 'sitting')
     assert(distance, 3)
 
 """
 __author__ = 'Daniel Lindsley'
-__version__ = (1, 1, 0)
+__version__ = (1, 2, 0)
 __license__ = 'New BSD'
 
 
-def classic_levenschtein(string_1, string_2):
+def classic_levenshtein(string_1, string_2):
     """
-    Calculates the Levenschtein distance between two strings.
+    Calculates the Levenshtein distance between two strings.
 
     This version is easier to read, but significantly slower than the version
     below (up to several orders of magnitude). Useful for learning, less so
@@ -32,11 +32,11 @@ def classic_levenschtein(string_1, string_2):
 
     Usage::
 
-        >>> classic_levenschtein('kitten', 'sitting')
+        >>> classic_levenshtein('kitten', 'sitting')
         3
-        >>> classic_levenschtein('kitten', 'kitten')
+        >>> classic_levenshtein('kitten', 'kitten')
         0
-        >>> classic_levenschtein('', '')
+        >>> classic_levenshtein('', '')
         0
 
     """
@@ -53,23 +53,23 @@ def classic_levenschtein(string_1, string_2):
         return len_1
     else:
         return min(
-            classic_levenschtein(string_1[1:], string_2) + 1,
-            classic_levenschtein(string_1, string_2[1:]) + 1,
-            classic_levenschtein(string_1[1:], string_2[1:]) + cost,
+            classic_levenshtein(string_1[1:], string_2) + 1,
+            classic_levenshtein(string_1, string_2[1:]) + 1,
+            classic_levenshtein(string_1[1:], string_2[1:]) + cost,
         )
 
 
-def levenschtein(string_1, string_2, len_1=None, len_2=None, offset_1=0, offset_2=0, memo=None):
+def levenshtein(string_1, string_2, len_1=None, len_2=None, offset_1=0, offset_2=0, memo=None):
     """
-    Calculates the Levenschtein distance between two strings.
+    Calculates the Levenshtein distance between two strings.
 
     Usage::
 
-        >>> levenschtein('kitten', 'sitting')
+        >>> levenshtein('kitten', 'sitting')
         3
-        >>> levenschtein('kitten', 'kitten')
+        >>> levenshtein('kitten', 'kitten')
         0
-        >>> levenschtein('', '')
+        >>> levenshtein('', '')
         0
 
     """
@@ -98,9 +98,14 @@ def levenschtein(string_1, string_2, len_1=None, len_2=None, offset_1=0, offset_
         cost = 1
 
     dist = min(
-        levenschtein(string_1, string_2, len_1 - 1, len_2, offset_1 + 1, offset_2, memo) + 1,
-        levenschtein(string_1, string_2, len_1, len_2 - 1, offset_1, offset_2 + 1, memo) + 1,
-        levenschtein(string_1, string_2, len_1 - 1, len_2 - 1, offset_1 + 1, offset_2 + 1, memo) + cost,
+        levenshtein(string_1, string_2, len_1 - 1, len_2, offset_1 + 1, offset_2, memo) + 1,
+        levenshtein(string_1, string_2, len_1, len_2 - 1, offset_1, offset_2 + 1, memo) + 1,
+        levenshtein(string_1, string_2, len_1 - 1, len_2 - 1, offset_1 + 1, offset_2 + 1, memo) + cost,
     )
     memo[key] = dist
     return dist
+
+
+# Backward-compatibilty because I misspelled.
+classic_levenschtein = classic_levenshtein
+levenschtein = levenshtein
