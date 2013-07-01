@@ -97,14 +97,85 @@ def levenshtein(string_1, string_2, len_1=None, len_2=None, offset_1=0, offset_2
     if string_1[offset_1] != string_2[offset_2]:
         cost = 1
 
-    dist = min(
-        levenshtein(string_1, string_2, len_1 - 1, len_2, offset_1 + 1, offset_2, memo) + 1,
-        levenshtein(string_1, string_2, len_1, len_2 - 1, offset_1, offset_2 + 1, memo) + 1,
-        levenshtein(string_1, string_2, len_1 - 1, len_2 - 1, offset_1 + 1, offset_2 + 1, memo) + cost,
-    )
+    x = levenshtein(string_1, string_2, len_1 - 1, len_2 - 1, offset_1 + 1, offset_2 + 1, memo) + cost
+    y = levenshtein(string_1, string_2, len_1 - 1, len_2, offset_1 + 1, offset_2, memo) + 1
+    
+    if x < y:
+        dist = x
+    else:
+        z = levenshtein(string_1, string_2, len_1, len_2 - 1, offset_1, offset_2 + 1, memo) + 1
+        dist = min(y, z)
+    
     memo[key] = dist
     return dist
 
+def faster_levenshtein(string_1, string_2, threshold=None):
+    """
+    Calculates the Levenshtein distance between two strings, supports threshold.
+
+    Usage::
+
+        >>> faster_levenshtein('kitten', 'sitting')
+        3
+        >>> faster_levenshtein('kitten', 'kitten')
+        0
+        >>> faster_levenshtein('', '')
+        0
+        >>> faster_levenshtein('pretty horses', 'ugly duckling', threshold=2)
+        None
+
+    """
+    
+    diagonals = len(string_1) + len(string_2) + 1
+    max_diagonal = min(len(string_1), len(string_2)) + 1
+    prev_min = 0
+    prev_diagonal = {}
+    prev_prev_diagonal = {}
+    
+    for i in xrange(diagonals):
+        length = min(abs(abs((diagonals - i) - 1 - i) - diagonals) / 2 + 1, max_diagonal) # black magic, finds length of diagonal.
+        x = min(i, len(string_1))
+        y = max(0, i-x)
+        diagonal = {}
+        diagonal_min = 2**30
+        
+        for j in xrange(length):
+            if x == 0:
+                result = y
+            elif y == 0:
+                result = x
+            else:
+                cost = string_1[x-1] != string_2[y-1]
+                numbers = []
+                
+                if x > 0 and (x-1, y) in prev_diagonal:
+                    numbers.append(prev_diagonal[(x-1, y)] + 1)
+                
+                if y > 0 and (x, y-1) in prev_diagonal:
+                    numbers.append(prev_diagonal[(x, y-1)] + 1)
+                
+                if x > 0 and y > 0 and (x-1, y-1) in prev_prev_diagonal:
+                    numbers.append(prev_prev_diagonal[(x-1, y-1)] + cost)
+                
+                if numbers:
+                    result = min(numbers)
+                else:
+                    result = 0
+            
+            diagonal_min = min(result, diagonal_min)
+            diagonal[(x, y)] = result
+            
+            x -= 1
+            y += 1
+        
+        if threshold is not None and min(diagonal_min, prev_min) > threshold:
+            return None
+        
+        prev_min = diagonal_min
+        prev_prev_diagonal = prev_diagonal
+        prev_diagonal = diagonal
+    
+    return diagonal_min
 
 # Backward-compatibilty because I misspelled.
 classic_levenschtein = classic_levenshtein
