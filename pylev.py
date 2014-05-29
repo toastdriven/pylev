@@ -106,6 +106,46 @@ def levenshtein(string_1, string_2, len_1=None, len_2=None, offset_1=0, offset_2
     return dist
 
 
+def wf_levenshtein(string_1, string_2):
+    """
+    Calculates the Levenshtein distance between two strings.
+
+    This version uses the Wagner-Fischer algorithm.
+
+    Usage::
+
+        >>> wf_levenshtein('kitten', 'sitting')
+        3
+        >>> wf_levenshtein('kitten', 'kitten')
+        0
+        >>> wf_levenshtein('', '')
+        0
+
+    """
+    len_1 = len(string_1) + 1
+    len_2 = len(string_2) + 1
+
+    d = [0] * (len_1 * len_2)
+
+    for i in range(len_1):
+        d[i] = i
+    for j in range(len_2):
+        d[j * len_1] = j
+
+    for j in range(1, len_2):
+        for i in range(1, len_1):
+            if string_1[i - 1] == string_2[j - 1]:
+                d[i + j * len_1] = d[i - 1 + (j - 1) * len_1]
+            else:
+                d[i + j * len_1] = min(
+                   d[i - 1 + j * len_1] + 1,
+                   d[i + (j - 1) * len_1] + 1,
+                   d[i - 1 + (j - 1) * len_1] + 1,
+                )
+
+    return d[-1]
+
+
 # Backward-compatibilty because I misspelled.
 classic_levenschtein = classic_levenshtein
 levenschtein = levenshtein
