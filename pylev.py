@@ -66,17 +66,17 @@ def classic_levenshtein(string_1, string_2):
         )
 
 
-def levenshtein(string_1, string_2, len_1=None, len_2=None, offset_1=0, offset_2=0, memo=None):
+def recursive_levenshtein(string_1, string_2, len_1=None, len_2=None, offset_1=0, offset_2=0, memo=None):
     """
     Calculates the Levenshtein distance between two strings.
 
     Usage::
 
-        >>> levenshtein('kitten', 'sitting')
+        >>> recursive_levenshtein('kitten', 'sitting')
         3
-        >>> levenshtein('kitten', 'kitten')
+        >>> recursive_levenshtein('kitten', 'kitten')
         0
-        >>> levenshtein('', '')
+        >>> recursive_levenshtein('', '')
         0
 
     """
@@ -105,9 +105,9 @@ def levenshtein(string_1, string_2, len_1=None, len_2=None, offset_1=0, offset_2
         cost = 1
 
     dist = min(
-        levenshtein(string_1, string_2, len_1 - 1, len_2, offset_1 + 1, offset_2, memo) + 1,
-        levenshtein(string_1, string_2, len_1, len_2 - 1, offset_1, offset_2 + 1, memo) + 1,
-        levenshtein(string_1, string_2, len_1 - 1, len_2 - 1, offset_1 + 1, offset_2 + 1, memo) + cost,
+        recursive_levenshtein(string_1, string_2, len_1 - 1, len_2, offset_1 + 1, offset_2, memo) + 1,
+        recursive_levenshtein(string_1, string_2, len_1, len_2 - 1, offset_1, offset_2 + 1, memo) + 1,
+        recursive_levenshtein(string_1, string_2, len_1 - 1, len_2 - 1, offset_1 + 1, offset_2 + 1, memo) + cost,
     )
     memo[key] = dist
     return dist
@@ -205,6 +205,7 @@ def wfi_levenshtein(string_1, string_2):
 
     return d0[-1]
 
+levenshtein = wfi_levenshtein
 
 # Backward-compatibilty because I misspelled.
 classic_levenschtein = classic_levenshtein
