@@ -18,7 +18,7 @@ Usage is fairly straightforward.::
 
 """
 __author__ = 'Daniel Lindsley'
-__version__ = (1, 2, 0)
+__version__ = (1, 3, 0)
 __license__ = 'New BSD'
 
 

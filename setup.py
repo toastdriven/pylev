@@ -7,7 +7,7 @@ except ImportError:
 
 setup(
     name='pylev',
-    version='1.2.0',
+    version='1.3.0',
     description="A pure Python Levenshtein implementation that's not freaking GPL'd.",
     author='Daniel Lindsley',
     author_email='daniel@toastdriven.com',

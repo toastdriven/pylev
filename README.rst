@@ -45,6 +45,11 @@ Running::
 Version History
 ---------------
 
+* v1.3.0
+
+    * Implemented a considerably faster variants (orders of magnitude).
+    * Tested & working on Python 2.7.4, Python 3.3.1 & PyPy 1.9.0.
+
 * v1.2.0
 
     * Fixed all incorrect spellings of "Levenshtein" (there's no "c" in it).
