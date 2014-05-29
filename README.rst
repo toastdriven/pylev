@@ -41,6 +41,8 @@ Running::
 
     $ python -m unittest tests
 
+[![Build Status](https://travis-ci.org/toastdriven/pylev.png)](https://travis-ci.org/toastdriven/pylev)
+
 
 Version History
 ---------------
