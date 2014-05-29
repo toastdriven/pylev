@@ -36,13 +36,10 @@ Setup::
 
     $ git clone https://github.com/toastdriven/pylev.git
     $ cd pylev
-    $ virtualenv env --distribute
-    $ . env/bin/activate
-    $ pip install unittest2
 
 Running::
 
-    $ python -m unittest2 tests
+    $ python -m unittest tests
 
 
 Version History
