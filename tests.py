@@ -25,8 +25,11 @@ class Tests(unittest.TestCase):
 
 
 def _mk_test_fn(fn, a, b, expected):
-    return lambda self: self.assertEqual(fn(a, b), expected)
+    def _test_fn(self):
+        self.assertEqual(fn(a, b), expected)
+        self.assertEqual(fn(b, a), expected)
 
+    return _test_fn
 
 for lev_fn, data in itertools.product(test_functions, test_data):
     name, a, b, expected = data
@@ -34,5 +37,5 @@ for lev_fn, data in itertools.product(test_functions, test_data):
     setattr(Tests, "test_%s_%s" % (name, lev_fn.__name__), test_fn)
 
 
-if __name__ == '__main__:
+if __name__ == '__main__':
     unittest.main()
