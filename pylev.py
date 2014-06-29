@@ -145,9 +145,9 @@ def wf_levenshtein(string_1, string_2):
                 d[i + j * len_1] = d[i - 1 + (j - 1) * len_1]
             else:
                 d[i + j * len_1] = min(
-                   d[i - 1 + j * len_1] + 1,
-                   d[i + (j - 1) * len_1] + 1,
-                   d[i - 1 + (j - 1) * len_1] + 1,
+                   d[i - 1 + j * len_1] + 1,        # deletion
+                   d[i + (j - 1) * len_1] + 1,      # insertion
+                   d[i - 1 + (j - 1) * len_1] + 1,  # substitution
                 )
 
     return d[-1]
@@ -157,7 +157,7 @@ def wfi_levenshtein(string_1, string_2):
     """
     Calculates the Levenshtein distance between two strings.
 
-    This version uses an iterave version of the Wagner-Fischer algorithm.
+    This version uses an iterative version of the Wagner-Fischer algorithm.
 
     Usage::
 
@@ -191,19 +191,27 @@ def wfi_levenshtein(string_1, string_2):
         d1[0] = i + 1
         for j in range(len_2):
             cost = d0[j]
+
             if string_1[i] != string_2[j]:
+                # substitution
                 cost += 1
-            x_cost = d1[j] + 1
-            if x_cost < cost:
-                cost = x_cost
-            y_cost = d0[j + 1] + 1
-            if y_cost < cost:
-                cost = y_cost
+
+                # insertion
+                x_cost = d1[j] + 1
+                if x_cost < cost:
+                    cost = x_cost
+
+                # deletion
+                y_cost = d0[j + 1] + 1
+                if y_cost < cost:
+                    cost = y_cost
+
             d1[j + 1] = cost
 
         d0, d1 = d1, d0
 
     return d0[-1]
+
 
 levenshtein = wfi_levenshtein
 
