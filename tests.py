@@ -21,7 +21,10 @@ test_functions = [
 
 class Tests(unittest.TestCase):
 
-    pass
+    def test_damerau_levenshtein(seld):
+        assert pylev.damerau_levenshtein("ba", "abc") == 2
+        assert pylev.damerau_levenshtein("foobar", "foobra") == 1
+        assert pylev.damerau_levenshtein("fee", "deed") == 2
 
 
 def _mk_test_fn(fn, a, b, expected):
@@ -30,6 +33,7 @@ def _mk_test_fn(fn, a, b, expected):
         self.assertEqual(fn(b, a), expected)
 
     return _test_fn
+
 
 for lev_fn, data in itertools.product(test_functions, test_data):
     name, a, b, expected = data
