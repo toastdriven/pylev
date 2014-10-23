@@ -36,17 +36,21 @@ Setup::
 
     $ git clone https://github.com/toastdriven/pylev.git
     $ cd pylev
-    $ virtualenv env --distribute
-    $ . env/bin/activate
-    $ pip install unittest2
 
 Running::
 
-    $ python -m unittest2 tests
+    $ python -m unittest tests
+
+[![Build Status](https://travis-ci.org/toastdriven/pylev.png)](https://travis-ci.org/toastdriven/pylev)
 
 
 Version History
 ---------------
+
+* v1.3.0
+
+    * Implemented a considerably faster variants (orders of magnitude).
+    * Tested & working on Python 2.7.4, Python 3.3.1 & PyPy 1.9.0.
 
 * v1.2.0
 
