@@ -16,7 +16,9 @@ Requirements
 Usage
 -----
 
-Usage is fairly straightforward.::
+Usage is fairly straightforward:
+
+.. code-block:: python
 
     import pylev
     distance = pylev.levenshtein('kitten', 'sitting')
