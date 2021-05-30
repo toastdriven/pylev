@@ -14,15 +14,16 @@ Usage is fairly straightforward.::
 
     import pylev
     distance = pylev.levenshtein('kitten', 'sitting')
-    assert(distance, 3)
+    assert distance == 3
 
 """
-__author__ = 'Daniel Lindsley'
-__version__ = (1, 3, 0)
-__license__ = 'New BSD'
+__author__ = "Daniel Lindsley"
+__version__ = (1, 4, 0, "alpha")
+__license__ = "New BSD"
 
 
 import sys
+
 PY2 = sys.version_info[0] == 2
 
 if PY2:
