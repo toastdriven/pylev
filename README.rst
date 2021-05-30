@@ -47,6 +47,13 @@ Running::
    :target: http://travis-ci.com/toastdriven/pylev
 
 
+See also
+--------
+
+* https://pypi.org/project/python-Levenshtein/ freaking GPL'd
+* https://pypi.org/project/fuzzywuzzy/ freaking GPL'd by accident
+* https://github.com/maxbachmann/RapidFuzz fork of the above before they accidently GPL'd it
+
 Version History
 ---------------
 
