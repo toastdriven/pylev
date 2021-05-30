@@ -43,7 +43,7 @@ Running::
 
     $ python -m unittest tests
 
-.. image:: https://secure.travis-ci.com/toastdriven/pylev.png
+.. image:: https://travis-ci.com/toastdriven/pylev.svg?branch=main
    :target: http://travis-ci.com/toastdriven/pylev
 
 
