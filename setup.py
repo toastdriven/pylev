@@ -14,7 +14,9 @@ setup(
     long_description=open(
         os.path.join(os.path.dirname(__file__), "README.rst"), "r"
     ).read(),
-    py_modules=["pylev"],
+    packages=["pylev"],
+    include_package_data=True,
+    zip_safe=False,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",

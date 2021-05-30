@@ -1,0 +1,3 @@
+include bench.sh
+include LICENSE
+include README.rst

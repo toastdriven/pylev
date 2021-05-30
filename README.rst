@@ -50,6 +50,14 @@ Running::
 Version History
 ---------------
 
+* v1.4.0
+
+    * Updated for current versions of Python
+    * Integrated a better Travis matrix. Thanks to @grainert!
+    * Fixed mistaken docs about the `assert`. Thanks to @adamchainz!
+    * Reorganized the package.
+    * Blacked all the source code.
+
 * v1.3.0
 
     * Implemented a considerably faster variants (orders of magnitude).

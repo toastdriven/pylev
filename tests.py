@@ -2,25 +2,26 @@ import itertools
 import unittest
 import pylev
 
+
 test_data = [
-    ('classic', "kitten", "sitting", 3),
-    ('same', "kitten", "kitten", 0),
-    ('empty', "", "", 0),
-    ('a', "meilenstein", "levenshtein", 4),
-    ('b', "levenshtein", "frankenstein", 6),
-    ('c', "confide", "deceit", 6),
-    ('d', "CUNsperrICY", "conspiracy", 8),
+    ("classic", "kitten", "sitting", 3),
+    ("same", "kitten", "kitten", 0),
+    ("empty", "", "", 0),
+    ("a", "meilenstein", "levenshtein", 4),
+    ("b", "levenshtein", "frankenstein", 6),
+    ("c", "confide", "deceit", 6),
+    ("d", "CUNsperrICY", "conspiracy", 8),
 ]
 
 test_functions = [
     # pylev.classic_levenshtein,   # disabled because it is so slow
     pylev.recursive_levenshtein,
     pylev.wf_levenshtein,
-    pylev.wfi_levenshtein
+    pylev.wfi_levenshtein,
 ]
 
-class Tests(unittest.TestCase):
 
+class Tests(unittest.TestCase):
     def test_damerau_levenshtein(seld):
         assert pylev.damerau_levenshtein("ba", "abc") == 2
         assert pylev.damerau_levenshtein("foobar", "foobra") == 1
@@ -41,5 +42,5 @@ for lev_fn, data in itertools.product(test_functions, test_data):
     setattr(Tests, "test_%s_%s" % (name, lev_fn.__name__), test_fn)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
