@@ -23,7 +23,7 @@ from .wf import wf_levenshtein, wfi_levenshtein
 from .damerau import damerau_levenshtein
 
 __author__ = "Daniel Lindsley"
-__version__ = (1, 4, 0, "alpha")
+__version__ = (1, 4, 0)
 __license__ = "New BSD"
 
 
