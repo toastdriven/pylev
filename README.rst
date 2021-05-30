@@ -22,7 +22,7 @@ Usage is fairly straightforward:
 
     import pylev
     distance = pylev.levenshtein('kitten', 'sitting')
-    assert(distance, 3)
+    assert distance == 3
 
 
 License
