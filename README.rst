@@ -6,6 +6,11 @@ A pure Python Levenshtein implementation that's not freaking GPL'd.
 Based off the Wikipedia code samples at
 http://en.wikipedia.org/wiki/Levenshtein_distance.
 
+.. image:: https://pepy.tech/badge/pylev
+   :target: https://pepy.tech/project/pylev
+.. image:: https://travis-ci.com/toastdriven/pylev.svg?branch=main
+   :target: http://travis-ci.com/toastdriven/pylev
+
 
 Requirements
 ------------
@@ -42,9 +47,6 @@ Setup::
 Running::
 
     $ python -m unittest tests
-
-.. image:: https://travis-ci.com/toastdriven/pylev.svg?branch=main
-   :target: http://travis-ci.com/toastdriven/pylev
 
 
 Alternatives
