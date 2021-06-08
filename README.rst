@@ -47,8 +47,22 @@ Running::
    :target: http://travis-ci.com/toastdriven/pylev
 
 
+Alternatives
+------------
+
+* https://pypi.org/project/levenshtein/ - GPL
+* https://pypi.org/project/python-Levenshtein/ - GPL
+* https://pypi.org/project/fuzzywuzzy/ - GPL
+* https://pypi.org/project/pylevenshtein/ - GPL
+* https://pypi.org/project/leven/ - Unknown license & requires Cython
+
+
 Version History
 ---------------
+
+* v1.5.0
+
+    * Added an alternatives section. Thanks to @graingert for the start!
 
 * v1.4.0
 
