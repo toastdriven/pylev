@@ -53,7 +53,7 @@ Version History
 * v1.4.0
 
     * Updated for current versions of Python
-    * Integrated a better Travis matrix. Thanks to @grainert!
+    * Integrated a better Travis matrix. Thanks to @graingert!
     * Fixed mistaken docs about the `assert`. Thanks to @adamchainz!
     * Reorganized the package.
     * Blacked all the source code.
