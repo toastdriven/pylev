@@ -10,12 +10,8 @@ http://en.wikipedia.org/wiki/Levenshtein_distance.
    :target: https://pepy.tech/project/pylev
 .. image:: https://travis-ci.com/toastdriven/pylev.svg?branch=main
    :target: http://travis-ci.com/toastdriven/pylev
-
-
-Requirements
-------------
-
-* Python 2.7.X, Python 3.3+ or PyPy 1.6.0+
+.. image:: https://img.shields.io/pypi/pyversions/pylev.svg?color=%2334D058?branch=main
+   :target: https://pypi.org/project/pylev
 
 
 Installation
