@@ -10,12 +10,14 @@ http://en.wikipedia.org/wiki/Levenshtein_distance.
    :target: https://pepy.tech/project/pylev
 .. image:: https://travis-ci.com/toastdriven/pylev.svg?branch=main
    :target: http://travis-ci.com/toastdriven/pylev
+.. image:: https://img.shields.io/pypi/pyversions/pylev.svg?color=%2334D058?branch=main
+   :target: https://pypi.org/project/pylev
 
 
-Requirements
+Installation
 ------------
 
-* Python 2.7.X, Python 3.3+ or PyPy 1.6.0+
+``pip install pylev``
 
 
 Usage
@@ -28,12 +30,6 @@ Usage is fairly straightforward:
     import pylev
     distance = pylev.levenshtein('kitten', 'sitting')
     assert distance == 3
-
-
-License
--------
-
-New BSD.
 
 
 Tests
@@ -101,3 +97,9 @@ Version History
 * v1.0.0
 
     * Initial release, just the naive implementation of Levenshtein.
+
+
+License
+-------
+
+New BSD.

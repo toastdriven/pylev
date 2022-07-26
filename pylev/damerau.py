@@ -41,7 +41,6 @@ def damerau_levenshtein(string_1, string_2):
         string_2, string_1 = string_1, string_2
         len_2, len_1 = len_1, len_2
 
-    prev_cost = 0
     d0 = [i for i in range(len_2 + 1)]
     d1 = [j for j in range(len_2 + 1)]
     dprev = d0[:]
