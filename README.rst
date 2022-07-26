@@ -18,6 +18,12 @@ Requirements
 * Python 2.7.X, Python 3.3+ or PyPy 1.6.0+
 
 
+Installation
+------------
+
+``pip install pylev``
+
+
 Usage
 -----
 
@@ -28,12 +34,6 @@ Usage is fairly straightforward:
     import pylev
     distance = pylev.levenshtein('kitten', 'sitting')
     assert distance == 3
-
-
-License
--------
-
-New BSD.
 
 
 Tests
@@ -101,3 +101,7 @@ Version History
 * v1.0.0
 
     * Initial release, just the naive implementation of Levenshtein.
+License
+-------
+
+New BSD.
