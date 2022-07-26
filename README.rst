@@ -101,6 +101,8 @@ Version History
 * v1.0.0
 
     * Initial release, just the naive implementation of Levenshtein.
+
+
 License
 -------
 
