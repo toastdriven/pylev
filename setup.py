@@ -1,10 +1,10 @@
-import os
-
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
+with open("README.rst", "r") as f:
+    long_description = f.read()
 
 setup(
     name="pylev",
@@ -12,9 +12,7 @@ setup(
     description="A pure Python Levenshtein implementation that's not freaking GPL'd.",
     author="Daniel Lindsley",
     author_email="daniel@toastdriven.com",
-    long_description=open(
-        os.path.join(os.path.dirname(__file__), "README.rst"), "r"
-    ).read(),
+    long_description=long_description,
     packages=["pylev"],
     include_package_data=True,
     zip_safe=False,
